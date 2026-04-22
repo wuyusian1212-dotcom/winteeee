@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Layout</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #56b4e9;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px;
+      font-family: sans-serif;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 900px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* ── Section 1: Green header block ── */
+    .block-green {
+      background-color: #8dc63f;
+      border-radius: 6px;
+      height: 140px;
+      width: 100%;
+    }
+
+    /* ── Section 2: Teal blocks ── */
+    .teal-grid {
+      display: grid;
+      gap: 8px;
+      /* Mobile default: single column */
+      grid-template-columns: 1fr;
+    }
+
+    .block-teal {
+      background-color: #00b0c8;
+      border-radius: 6px;
+      height: 60px;
+    }
+
+    /* ── Section 3: Gray boxes ── */
+    .gray-grid {
+      display: grid;
+      gap: 8px;
+      /* Mobile default: 2 columns */
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .block-gray {
+      background-color: #d9d9d9;
+      border-radius: 6px;
+      height: 55px;
+    }
+
+    /* ── Wider layout: >= 480px ── */
+    @media (min-width: 480px) {
+      .teal-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .block-teal {
+        height: 100px;
+      }
+
+      .gray-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Green top block -->
+    <div class="block-green"></div>
+
+    <!-- Teal blocks: stacked on mobile, 3-col on wider screens -->
+    <div class="teal-grid">
+      <div class="block-teal"></div>
+      <div class="block-teal"></div>
+      <div class="block-teal"></div>
+    </div>
+
+    <!-- Gray boxes: 2-col on mobile, 4-col on wider screens (2 rows) -->
+    <div class="gray-grid">
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+      <div class="block-gray"></div>
+    </div>
+
+  </div>
+</body>
+</html>
